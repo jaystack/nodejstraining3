@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <script src="scripts/jquery.js"></script>
+    <script>
+        function doApiCall(_name, _greeting) {
+          var name = _name || prompt("Name??")
+          var greeting = _greeting || prompt("Greeting???")
+          var apiUrl = encodeURI(`/api/greetPerson/${name}/${greeting}?`)
+          $.getJSON(apiUrl).then(function(response) {
+            $('#result').html(response.result)
+          })
+        }
+
+        doApiCall("Hajni", "night")
+      </script>
+  </head>
+  <body>
+    <button onclick="doApiCall()">Press me (hard)</button>
+    <div id="result">
+
+    </div>
+  </body>
+</html>
